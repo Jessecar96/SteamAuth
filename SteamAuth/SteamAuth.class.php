@@ -29,7 +29,7 @@ class SteamAuth
 
 	public function __call($closure, $args)
 	{
-        return call_user_func_array($this->$closure, $args);
+	        return call_user_func_array($this->$closure, $args);
 	}
 
 	public function Init()
@@ -58,7 +58,7 @@ class SteamAuth
 
 	public function IsUserLoggedIn()
 	{
-		return strpos($_SESSION['steamid'], "7656") === 0;
+		return isset($_SESSION['steamid']) ? strpos($_SESSION['steamid'], "7656") === 0: false;
 	}
 
 	public function RedirectLogin()

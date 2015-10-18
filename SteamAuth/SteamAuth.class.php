@@ -58,7 +58,7 @@ class SteamAuth
 
 	public function IsUserLoggedIn()
 	{
-		return isset($_SESSION['steamid']) ? strpos($_SESSION['steamid'], "7656") === 0: false;
+		return isset($_SESSION['steamid']) && strpos($_SESSION['steamid'], "7656") === 0 ? true : false;
 	}
 
 	public function RedirectLogin()

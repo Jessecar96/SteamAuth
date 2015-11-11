@@ -34,31 +34,38 @@ class SteamAuth
 
 	public function Init()
 	{
-		if($this->IsUserLoggedIn()){
+		if($this->IsUserLoggedIn())
+		{
 			$this->SteamID = $_SESSION['steamid'];
 			return;
 		}
 
-		if($this->OpenID->mode == 'cancel'){
+		if($this->OpenID->mode == 'cancel')
+		{
 
 			$this->OnLoginFailedCallback();
 
-		}else if($this->OpenID->mode){
-			if($this->OpenID->validate()){
+		}
+		else if($this->OpenID->mode)
+		{
+			if($this->OpenID->validate())
+			{
 				$this->SteamID = basename($this->OpenID->identity);
-				if($this->OnLoginCallback($this->SteamID)){
+				if($this->OnLoginCallback($this->SteamID))
+				{
 					$_SESSION['steamid'] = $this->SteamID;
 				}
-			}else{
+			}
+			else
+			{
 				$this->OnLoginFailedCallback();
 			}
-
 		}
 	}
 
 	public function IsUserLoggedIn()
 	{
-		return isset($_SESSION['steamid']) ? strpos($_SESSION['steamid'], "7656") === 0: false;
+		return isset($_SESSION['steamid']) && strpos($_SESSION['steamid'], "7656") === 0 ? true : false;
 	}
 
 	public function RedirectLogin()

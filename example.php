@@ -21,6 +21,11 @@ $auth->SetOnLoginFailedCallback(function(){
 	return true;
 });
 
+// You can use this to do other checks on the person, such as making an modifying a database
+$auth->SetOnLogoutCallback(function($steamid){
+	return true; 
+});
+
 // Always call Init() on pages you want to check a login from.  Call this AFTER you set handlers!
 $auth->Init();
 

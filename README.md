@@ -1,6 +1,7 @@
 SteamAuth
 =========
 Sign in through Steam library for PHP.
+
 This is only intended for basic webpages. For bigger projects use this only as an example to build your own.
 
 
@@ -31,7 +32,6 @@ if($auth->IsUserLoggedIn())
 {
 	echo "Your SteamID is " . $auth->SteamID . "<br/>";
 	echo "<form method=\"POST\"><input type=\"submit\" name=\"logout\" value=\"Logout\" /></form>";
-
 } 
 else 
 {

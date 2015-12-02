@@ -80,6 +80,8 @@ class SteamAuth
 
 	public function Logout()
 	{
+		$this->OnLogoutCallback($this->SteamID);
+
 		unset($_SESSION['steamid']);
 		header("http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 	}
@@ -87,6 +89,11 @@ class SteamAuth
 	public function SetOnLoginCallback($OnLoginCallback)
 	{
 		$this->OnLoginCallback = $OnLoginCallback;
+	}
+
+	public function SetOnLogoutCallback($OnLogoutCallback)
+	{
+		$this->OnLogoutCallback = $OnLogoutCallback;
 	}
 
 	public function SetOnLoginFailedCallback($OnLoginFailedCallback)

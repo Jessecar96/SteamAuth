@@ -1,6 +1,7 @@
 SteamAuth
 =========
-Example sign in through Steam in PHP
+Sign in through Steam library for PHP.
+This is only intended for basic webpages. For bigger projects use this only as an example to build your own.
 
 
 Features
